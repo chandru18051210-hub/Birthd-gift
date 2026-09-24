@@ -1,0 +1,346 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Birthday Venky ❤️</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-family: Arial, sans-serif;
+
+            background: linear-gradient(
+                135deg,
+                #120018,
+                #4b164c,
+                #a83265
+            );
+
+            overflow: hidden;
+        }
+
+        /* Main Card */
+
+        .card {
+            width: 90%;
+            max-width: 650px;
+
+            padding: 45px 30px;
+
+            text-align: center;
+
+            background: rgba(255,255,255,0.13);
+
+            border: 1px solid rgba(255,255,255,0.3);
+
+            border-radius: 30px;
+
+            backdrop-filter: blur(15px);
+
+            box-shadow:
+                0 0 40px rgba(255,105,180,0.5);
+
+            animation: cardShow 1.5s ease;
+        }
+
+        /* Cake */
+
+        .cake {
+            font-size: 75px;
+
+            animation: bounce 1.5s infinite;
+        }
+
+        /* Heading */
+
+        h1 {
+            margin-top: 10px;
+
+            color: white;
+
+            font-size: 45px;
+
+            text-shadow:
+                0 0 10px #ff69b4,
+                0 0 25px #ff1493;
+        }
+
+        h2 {
+            margin-top: 5px;
+
+            color: #ffb6d9;
+
+            font-size: 40px;
+
+            text-shadow: 0 0 15px #ff1493;
+        }
+
+        h3 {
+            margin-top: 20px;
+
+            color: #ffd6e7;
+
+            font-size: 27px;
+        }
+
+        .line {
+            width: 150px;
+            height: 3px;
+
+            margin: 18px auto;
+
+            background: #ff69b4;
+
+            box-shadow: 0 0 15px #ff1493;
+
+            border-radius: 10px;
+        }
+
+        /* Typing Text */
+
+        #typing {
+            min-height: 110px;
+
+            margin: 20px auto;
+
+            max-width: 520px;
+
+            color: white;
+
+            font-size: 18px;
+
+            line-height: 1.7;
+        }
+
+        /* Button */
+
+        button {
+            padding: 15px 30px;
+
+            border: none;
+
+            border-radius: 30px;
+
+            background: linear-gradient(
+                45deg,
+                #ff1493,
+                #ff69b4
+            );
+
+            color: white;
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 5px 20px rgba(255,20,147,0.5);
+
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+
+            box-shadow:
+                0 0 30px #ff69b4;
+        }
+
+        /* Surprise Message */
+
+        #surprise {
+            margin-top: 25px;
+
+            color: white;
+
+            font-size: 20px;
+
+            line-height: 1.7;
+        }
+
+        /* Card Animation */
+
+        @keyframes cardShow {
+
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Cake Animation */
+
+        @keyframes bounce {
+
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- Main Birthday Card -->
+
+    <div class="card">
+
+        <div class="cake">🎂</div>
+
+        <h1>Happy Birthday</h1>
+
+        <h2>Venky ❤️</h2>
+
+        <div class="line"></div>
+
+        <h3>✨ Uyire Natpu ✨</h3>
+
+        <p id="typing"></p>
+
+        <button onclick="birthdaySurprise()">
+            🎁 Click for Surprise
+        </button>
+
+        <div id="surprise"></div>
+
+    </div>
+
+
+
+    <script>
+
+        /* =========================
+           TYPEWRITER EFFECT
+        ========================= */
+
+        let message =
+        "Life la neraya peru varuvanga... " +
+        "but sila peru mattum dhaan namma life la special ah maaruvanga. ❤️ " +
+        "Nee enakku apdi oru special person. " +
+        "Endha situation ah irundhalum namma natpu ipdiye irukkanum. 🫂";
+
+        let index = 0;
+
+        function typeMessage() {
+
+            if (index < message.length) {
+
+                document.getElementById("typing").innerHTML +=
+                    message.charAt(index);
+
+                index++;
+
+                setTimeout(typeMessage, 35);
+            }
+        }
+
+        typeMessage();
+
+
+
+        /* =========================
+           SURPRISE BUTTON
+        ========================= */
+
+        function birthdaySurprise() {
+
+            document.getElementById("surprise").innerHTML =
+
+                "🎉 HAPPY BIRTHDAY VENKY! 🎉<br><br>" +
+
+                "❤️ Uyire Natpu ❤️<br>" +
+
+                "Un smile always ipdiye irukkanum! 😊<br>" +
+
+                "Un life full ah happiness & success irukkanum! ✨<br><br>" +
+
+                "🫂 FOREVER FRIENDS 🫂";
+
+
+            createBalloons();
+        }
+
+
+
+        /* =========================
+           BALLOON EFFECT
+        ========================= */
+
+        function createBalloons() {
+
+            for (let i = 0; i < 30; i++) {
+
+                let balloon =
+                    document.createElement("div");
+
+                balloon.innerHTML =
+                    ["🎈", "❤️", "✨", "🎉"]
+                    [Math.floor(Math.random() * 4)];
+
+                balloon.style.position = "fixed";
+
+                balloon.style.left =
+                    Math.random() * 100 + "%";
+
+                balloon.style.bottom = "-60px";
+
+                balloon.style.fontSize =
+                    (25 + Math.random() * 35) + "px";
+
+                balloon.style.transition =
+                    (3 + Math.random() * 4) + "s";
+
+                document.body.appendChild(balloon);
+
+
+                setTimeout(function () {
+
+                    balloon.style.bottom = "110%";
+
+                }, 100);
+
+
+                setTimeout(function () {
+
+                    balloon.remove();
+
+                }, 7000);
+
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
+```
